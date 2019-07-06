@@ -1,0 +1,24 @@
+
+**************problems i've faced in the notes and book****************
+
+PROBLEM: Notes don't explicitly say to install jupyter (it's the title though!)
+SOLUTION: pip3 install jupyter
+
+PROBLEM: Qiskit 0.7(or 8 ?).0 was installed, links to old API. Link in exception redirects to new API--impossible to accept license in link. Exception reproduced:
+ConnectionError: Couldn't connect to IBMQ server: error during login: License required. You need to accept the License from Web Platform. https://quantumexperience.ng.bluemix.net
+SOLUTION: Updated Qiskit in the usual fashion (pip3 install qiskit -U) and added 2nd parameter, URL, to both methods. URL can be found under 'Your accounts' near the bottom of the page. Corrected block in its entirety:
+
+from qiskit import IBMQ
+# Authenticate an account and add for use during this session. Replace string argument with your private token.
+IBMQ.enable_account('MY_API_TOKEN', 'MY_URL')
+# To store your credentials locally you can run:
+#IBMQ.save_account('MY_API_TOKEN', 'MY_URL')
+#source: https://qiskit.org/documentation/install.html#install-access-ibm-q-devices-label
+
+PROBLEM: Chapter1 Ex. 3 instructs to "change the backend to an option beginning with ibmq_5 and then Run". None begins with 'ibmq_5_', and besides 'ibmq_qasm_simulator', all backends I have available in IBMQ.backends() are not simulators. Here's my list:
+[<IBMQSimulator('ibmq_qasm_simulator') from IBMQ(ibm-q, open, main)>, <IBMQBackend('ibmqx4') from IBMQ(ibm-q, open, main)>, <IBMQBackend('ibmqx2') from IBMQ(ibm-q, open, main)>, <IBMQBackend('ibmq_16_melbourne') from IBMQ(ibm-q, open, main)>]
+SOLUTION: use one of the other IBMQ backends
+
+
+
+
