@@ -21,4 +21,64 @@ SOLUTION: use one of the other IBMQ backends
 
 
 
+PINION: The math underlying the Kronecker tensor product should be introduced in chapter 3 when preparing states. It’s intuitive and helps build an intuition for the exponentiation that motivates quantum computing in the first place.
+
+
+PROBLEM: Ch 8, 4th code listing in notebook: module ‘qiskit’ has no attribute ‘wrapper’
+SOLUTION: use the following:
+
+print(dir(qiskit.circuit.QuantumCircuit))
+qc = qiskit.circuit.QuantumCircuit.from_qasm_str(qasm_str)
+
+Source: https://qiskit.org/documentation/_modules/qiskit/circuit/quantumcircuit.html#QuantumCircuit.from_qasm_str
+
+
+PROBLEM: Ch 8 p128: Qiskit Aqua installation and testing code does not work. pip command returned “Requirement already satisfied” for both
+SOLUTION: use the following:
+
+pip3 install qiskit-aqua qiskit-chemistry
+
+# Testing QISKit Aqua installation
+import qiskit.aqua
+import qiskit.chemistry
+
+
+PROBLEM: Ch 8 notebook: (How to play sound over ssh?) error: No available audio device 
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4555:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4555:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4555:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5034:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM default
+SOLUTION: 
+
+
+Problem: subject verb agreement
+“The document checker now suspects there is no possible combination of
+documents that are valid,”
+SOLUTION: “there is no possible combination…that is valid”
+
+
+PROBLEM: Typo Ch 9 p150, Quantum OR gate: “That is to say, our reversible AND
+gate will map input bit a to output bit a',”
+SOLUTION: replace “AND” with “OR”
+
+PROBLEM: Typo Ch 9 p 151: “First, we must just negate each of the three input qubit”
+SOLUTION: replace “qubit” w/ “qubits”
+
+PROBLEM: Comma abuse Ch 9 p152: “The first, outputs to a qubit which serves as one of the input qubits to the second part:”
+SOLUTION: remove the comma between subject and verb
+
+PROBLEM: Comma abuse Ch 10 p164 (the final comma) “To increase the
+probability enough so that it is likely in just one measurement to get the correct input that
+satisfies the checker, we will in general need to run the checker function and then
+the mover function steps multiple times, until the chance that we get the correct input when we measure, is very high.”
+SOLUTION: remove comma
+
+
+
+
+
 
