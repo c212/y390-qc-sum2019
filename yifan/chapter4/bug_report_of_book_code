@@ -1,0 +1,8 @@
+def probability_table_in_01_basis(state,n_measurements=1000):
+    from collections import Counter
+    #
+    #
+    #error: change final_state to state
+    measured=[measure_in_01_basis(final_state) for i in range(n_measurements)]  //at this line, change final_state to state
+    for s,c in Counter(measured).items():
+        print(s,"{0:.0%}".format(c/n_measurements))
